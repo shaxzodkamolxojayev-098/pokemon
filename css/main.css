@@ -1,0 +1,36 @@
+*{
+  box-sizing: border-box;
+}
+
+.container{
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.pokemon__section{
+  background: #f7ce03;
+}
+
+.pokemon__inner{
+  max-width: 1100px;
+}
+
+.logo__link{
+  display: block;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.form__inner{
+  display: flex;
+  max-width: 610px;
+  justify-content: space-between;
+}
+
+.box{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 0 30px;
+}
