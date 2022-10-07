@@ -54,26 +54,32 @@ let newInfo=data.map((item,index,arry)=>{
 // console.log(newInfo);
 
 
+let elFormSelect=document.querySelector('#category');
 
-
-
-newInfo.forEach ((e) => {
-  const card=plusElement('div', 'card shedow box',`
-  <img src="${e.img}" alt="${e.title}">
-  <div class="card-body">
-   <h3>${e.title}</h3>
-   <ul>
-   <li>${e.category}</li>
-   <li>${e.age}</li>
-   <li>${e.weight}</li>
-   </ul>
-   </div>
-   `)
-
-   $qs('.box').appendChild(card);
-   
+elFormSelect.addEventListener('change',(e)=>{
+   console.log(e.target.value);
 })
 
+renderData()
+
+function renderData() {
+  newInfo.forEach ((e) => {
+    const card=plusElement('div', 'card shedow box my-2',`
+    <img src="${e.img}" alt="${e.title}">
+    <div class="card-body my-2 mx-2">
+     <h3>${e.title}</h3>
+     <ul>
+     <li>${e.category}</li>
+     <li>${e.age}</li>
+     <li>${e.weight}</li>
+     </ul>
+     </div>
+     `)
+  
+     $qs('.box').appendChild(card);
+     
+  })
+}
 
 
 
@@ -84,8 +90,8 @@ function category(){
     item.category.forEach((e)=>{
       if(!pokemonCategories.includes(e)){
         pokemonCategories.push(e);
-      }
-      
+        }
+        
     })
   })
   
@@ -93,8 +99,23 @@ function category(){
 
 category()
 
+console.log(pokemonCategories);
 
 pokemonCategories.forEach((e)=>{
   const option=plusElement('option','option-item', e);
   $qs('#category').appendChild(option);
 })
+
+
+
+
+
+// console.log(pokemonCategories);
+
+// const filterOption=pokemonCategories.filter((e)=>{
+//   return e.category.toLowerCase()==='normal'
+// })
+
+
+
+// console.log(filterOption);
