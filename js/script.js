@@ -39,7 +39,8 @@
 //   ]
 // }
 
-let data=pokemons.splice(0,20)
+// let data=pokemons.splice(0,20)
+let data=pokemons
 
 let newInfo=data.map((item,index,arry)=>{
   return {
@@ -67,15 +68,15 @@ renderData()
 
 function renderData(query = "all") {
   
-  elBox.innerHTML = "";
+  // elBox.innerHTML = "";
   
-  pokemonCategories.filter((e)=>{
-    if(query==="all"){
-      return e
-    }else{
-      return e.category.toLoverCase() === query;
-    }
-  })
+  // pokemonCategories.filter((e)=>{
+  //   if(query==="all"){
+  //     return e
+  //   }else{
+  //     return e.category.toLoverCase() === query;
+  //   }
+  // })
     
   
   newInfo.forEach ((e) => {
