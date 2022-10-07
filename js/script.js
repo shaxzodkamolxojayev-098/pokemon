@@ -57,12 +57,27 @@ let newInfo=data.map((item,index,arry)=>{
 let elFormSelect=document.querySelector('#category');
 
 elFormSelect.addEventListener('change',(e)=>{
-   console.log(e.target.value);
+  //  console.log(e.target.value);
+  renderData(e.target.value.toLoverCase())
 })
 
 renderData()
 
-function renderData() {
+// const elBox=$qs('.box');
+
+function renderData(query = "all") {
+  
+  elBox.innerHTML = "";
+  
+  pokemonCategories.filter((e)=>{
+    if(query==="all"){
+      return e
+    }else{
+      return e.category.toLoverCase() === query;
+    }
+  })
+    
+  
   newInfo.forEach ((e) => {
     const card=plusElement('div', 'card shedow box my-2',`
     <img src="${e.img}" alt="${e.title}">
@@ -75,16 +90,16 @@ function renderData() {
      </ul>
      </div>
      `)
-  
+     
      $qs('.box').appendChild(card);
      
-  })
-}
-
-
-
-let pokemonCategories=[];
-
+    })
+  }
+  
+  
+  
+  let pokemonCategories=[];
+  
 function category(){
   newInfo.forEach((item)=>{
     item.category.forEach((e)=>{
@@ -99,7 +114,7 @@ function category(){
 
 category()
 
-console.log(pokemonCategories);
+// console.log(pokemonCategories);
 
 pokemonCategories.forEach((e)=>{
   const option=plusElement('option','option-item', e);
